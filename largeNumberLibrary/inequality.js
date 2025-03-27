@@ -1,7 +1,4 @@
-export function hello(text) {
-}
-
-const inequality = (n1, n2) => {
+const _inequality = (n1, n2) => {
     //                           ____________
     // _________________________/ inequality \____
     // returns 0,1,2 for what number is highest
@@ -30,3 +27,4 @@ const inequality = (n1, n2) => {
     // finaly just return the larger one
     if (result == "smaller") { return "2" } else { return "1" }
   }
+  export default _inequality;
