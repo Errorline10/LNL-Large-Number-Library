@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
 
-    <script type="module">
-      import bigMath from '/largeNumberLibrary/largeNumberLibrary.js';
-      bigMath.allTests('all');
-    </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/autocomplete.css">
 
-  </head>
-  <body></body>
+  <script type="module">
+    import bigMath from '/largeNumberLibrary/largeNumberLibrary.js';
+    import autocomplete from '/javascript/autocomplete.js';
+
+    document.addEventListener('DOMContentLoaded', function () {
+      let auto1 = autocomplete();
+      auto1.init('myInput1')
+
+      let auto2 = autocomplete();
+      auto2.init('myInput2')
+    });  
+  </script>
+
+
+</head>
+
+<body>
+  <div id="alphaKeys">
+    <div style="float: left; width: 300px;"><input id="myInput1" autocomplete="off" placeholder="Search1..." /></div>
+    <div style="float: left; width: 300px"><input id="myInput2" autocomplete="off" placeholder="Search2..." /></div>
+
+  </div>
+</body>
+
+
+
+
 </html>

@@ -18,7 +18,7 @@ const ns=()=>{
 
 }
 
-export default ns();
+export default ns;
 
 
 

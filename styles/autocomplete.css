@@ -1,0 +1,8 @@
+.autocomplete-items{
+  border: 1px solid gray;
+  color: black;
+  cursor: pointer;
+}
+.autocomplete-items div:hover{
+  background-color: gray;
+}
