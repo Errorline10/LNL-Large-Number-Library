@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/autocomplete.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="styles/autocomplete.css">
+    <script type="module">
+      import bigMath from "/largeNumberLibrary/largeNumberLibrary.js";
+      import autocomplete from "/javascript/autocomplete.js";
 
-  <script type="module">
-    import bigMath from '/largeNumberLibrary/largeNumberLibrary.js';
-    import autocomplete from '/javascript/autocomplete.js';
+      document.addEventListener("DOMContentLoaded", function () {
+        let auto1 = autocomplete();
+        auto1.init("myInput1");
 
-    document.addEventListener('DOMContentLoaded', function () {
-      let auto1 = autocomplete();
-      auto1.init('myInput1')
+        let auto2 = autocomplete();
+        auto2.init("myInput2");
 
-      let auto2 = autocomplete();
-      auto2.init('myInput2')
-    });  
-  </script>
+        let auto3 = autocomplete();
+        auto3.init("myInput3");
+      });
+    </script>
+  </head>
 
+  <body>
+    <div id="alphaKeys">
+      <p>there are 466,550 words in the lookup table</p>
+      <p>with three random words thats 1.0155343e+17 combinations.</p>
+      <p>101,553,430,000,000,000</p>
+      <div style="float: left; width: 200px">
+        <input id="myInput1" autocomplete="off" placeholder="Search1..." />
+      </div>
+      <div style="float: left; width: 200px">
+        <input id="myInput2" autocomplete="off" placeholder="Search2..." />
+      </div>
+      <div style="float: left; width: 200px">
+        <input id="myInput3" autocomplete="off" placeholder="Search3..." />
+      </div>
+    </div>
+    <br />
 
-</head>
-
-<body>
-  <div id="alphaKeys">
-    <div style="float: left; width: 300px;"><input id="myInput1" autocomplete="off" placeholder="Search1..." /></div>
-    <div style="float: left; width: 300px"><input id="myInput2" autocomplete="off" placeholder="Search2..." /></div>
-
-  </div>
-</body>
-
-
-
-
+    <p>5 digit pin has 100,000 possible values</p>
+    <div id="pinKeys">
+      <input
+        id="pin"
+        max="5"
+        maxlength="5"
+        type="number"
+        placeholder="5 digit PIN"
+      />
+    </div>
+    <br />
+    <code>
+    For a grand total of: 101,563,430,000,000,000,000,000 combinations.<br>
+    a 12 charictor pass only has:..... 94,000,000,000,000
+  </code>
+  </body>
 </html>

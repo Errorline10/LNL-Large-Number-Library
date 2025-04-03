@@ -2,7 +2,14 @@
   border: 1px solid gray;
   color: black;
   cursor: pointer;
+  position: absolute;
+  width: 164px;
+  background-color: white;
+  padding: 5px;
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
-.autocomplete-items div:hover{
+.autocomplete-items div:hover ,.autocomplete-items div.selected{
   background-color: gray;
 }
