@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="styles/keyPopUp.css" />
     <link rel="stylesheet" href="styles/autocomplete.css" />
 
     <script type="module">
-      import bigMath from "/largeNumberLibrary/largeNumberLibrary.js";
-      import autocomplete from "/javascript/autocomplete.js";
+      import bigMath from "/script/largeNumberLibrary/largeNumberLibrary.js";
+      import autocomplete from "/script/lookupTables/autocomplete.js";
 
       document.addEventListener("DOMContentLoaded", function () {
         let auto1 = autocomplete();
@@ -21,39 +22,92 @@
         auto3.init("myInput3");
       });
     </script>
+
+    <!-- Include Quill -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.min.js"></script>
   </head>
 
   <body>
-    <div id="alphaKeys">
-      <p>there are 466,550 words in the lookup table</p>
-      <p>with three random words thats 1.0155343e+17 combinations.</p>
-      <p>101,553,430,000,000,000</p>
-      <div style="float: left; width: 200px">
-        <input id="myInput1" autocomplete="off" placeholder="Search1..." />
-      </div>
-      <div style="float: left; width: 200px">
-        <input id="myInput2" autocomplete="off" placeholder="Search2..." />
-      </div>
-      <div style="float: left; width: 200px">
-        <input id="myInput3" autocomplete="off" placeholder="Search3..." />
-      </div>
-    </div>
-    <br />
+    <div class="keyPopUp">
+      <div class="keyPopUp__container">
+        <div id="alphaKeys">
+          
+            <h2>Key Pop Up</h2>
 
-    <p>5 digit pin has 100,000 possible values</p>
-    <div id="pinKeys">
-      <input
-        id="pin"
-        max="5"
-        maxlength="5"
-        type="number"
-        placeholder="5 digit PIN"
-      />
+          <div class="description">
+            <p>there are 466,550 words in the lookup table with three random words thats 1.0155343e+17 combinations. 101,553,430,000,000,000</p>
+          </div>
+
+
+          <div style="float: left; width: 200px">
+            <input id="myInput1" autocomplete="off" placeholder="Search1..." />
+          </div>
+          <div style="float: left; width: 200px">
+            <input id="myInput2" autocomplete="off" placeholder="Search2..." />
+          </div>
+          <div style="float: left; width: 200px">
+            <input id="myInput3" autocomplete="off" placeholder="Search3..." />
+          </div>
+        </div>
+        <br />
+
+        <p>5 digit pin has 100,000 possible values</p>
+        <div id="pinKeys">
+          <input
+            placeholder="00000"
+            pattern="[0-9]{5}"
+            id="pin"
+            max="5"
+            maxlength="5"
+            type="number"
+            placeholder="5 digit PIN"
+            onKeyPress="if(this.value.length>=5) return false;"
+          />
+        </div>
+        <br />
+        <code>
+          For a grand total of: 101,563,430,000,000,000,000,000 combinations.<br />
+          a 12 character pass only has:..... 94,000,000,000,000
+        </code>
+      </div>
     </div>
-    <br />
-    <code>
-    For a grand total of: 101,563,430,000,000,000,000,000 combinations.<br>
-    a 12 charictor pass only has:..... 94,000,000,000,000
-  </code>
+
+    <!-- Include a Quill editor -->
+    <div id="editor">
+      <p>Hello World!</p>
+      <p>Some initial <strong>bold</strong> text</p>
+      <p><br /></p>
+    </div>
+    <button id="save" onclick="save()">Save</button>
+    <button id="load" onclick="load()">Load</button>
+
+    <script>
+      function save() {
+        let el = document.getElementById("editor").querySelector(".ql-editor");
+        console.log(el.innerHTML);
+      }
+      function load() {
+        let el = document.getElementById("editor");
+        let editor = el.querySelector(".ql-editor");
+        editor.innerHTML = `Hello my name is mike!`;
+      }
+
+      var quill = new Quill("#editor", {
+        theme: "snow",
+        modules: {
+          toolbar: [
+            [{ header: [1, 2, false] }],
+            ["bold", "italic", "underline"],
+            ["code-block"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["link", "image"],
+          ],
+        },
+      });
+    </script>
   </body>
 </html>

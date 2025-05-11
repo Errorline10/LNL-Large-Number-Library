@@ -1,0 +1,45 @@
+.keyPopUp {
+    font-size: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(159, 241, 146, 0.8);
+    border: 1px solid #000;
+    border-radius: 10%;
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+.keyPopUp h2 {
+    margin: 0;
+    font-size: 24px;
+}
+.keyPopUp .description {
+    margin: 10px 0;
+    font-size: 16px;
+}
+/* make the .keyPopUp drop down from the top of the screen */
+.keyPopUp {
+    animation: dropDown 0.5s ease-in-out;
+}
+
+@keyframes dropDown {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+
+#pinKeys{
+    font-size:"50px";
+    font-weight: bold;
+}
