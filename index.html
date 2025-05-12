@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="styles/keyPopUp.css" />
     <link rel="stylesheet" href="styles/autocomplete.css" />
 
+    <style>
+      #keyPopUp__apply:disabled {
+        background-color: gray;
+        cursor: not-allowed;
+      }
+    </style>
+
     <script type="module">
       import bigMath from "/script/largeNumberLibrary/largeNumberLibrary.js";
       import autocomplete from "/script/lookupTables/autocomplete.js";
@@ -20,6 +27,26 @@
 
         let auto3 = autocomplete();
         auto3.init("myInput3");
+
+        let inputs = [
+          document.getElementById("myInput1"),
+          document.getElementById("myInput2"),
+          document.getElementById("myInput3"),
+          document.getElementById("pin"),
+        ];
+        let applyButton = document.getElementById("keyPopUp__apply");
+
+        function checkInputs() {
+          let allFilled = inputs.every((input) => input.value.trim() !== "");
+          applyButton.disabled = !allFilled;
+        }
+
+        inputs.forEach((input) => {
+          input.addEventListener("input", checkInputs);
+        });
+
+        // Initialize button state
+        checkInputs();
       });
     </script>
 
@@ -33,47 +60,89 @@
 
   <body>
     <div class="keyPopUp">
+      <button
+        id="keyPopUp__close"
+        class="keyPopUp__close"
+        onclick="document.querySelector('.keyPopUp').style.display = 'none'"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-x"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
       <div class="keyPopUp__container">
-        <div id="alphaKeys">
-          
-            <h2>Key Pop Up</h2>
+        <h2>Key Pop Up</h2>
 
-          <div class="description">
-            <p>there are 466,550 words in the lookup table with three random words thats 1.0155343e+17 combinations. 101,553,430,000,000,000</p>
-          </div>
-
-
-          <div style="float: left; width: 200px">
-            <input id="myInput1" autocomplete="off" placeholder="Search1..." />
-          </div>
-          <div style="float: left; width: 200px">
-            <input id="myInput2" autocomplete="off" placeholder="Search2..." />
-          </div>
-          <div style="float: left; width: 200px">
-            <input id="myInput3" autocomplete="off" placeholder="Search3..." />
-          </div>
+        <div class="input-container">
+          <form autocomplete="false">
+            <label class="stacked-input"
+              >Key #1 :<input
+                id="myInput1"
+                autocomplete="off"
+                placeholder="Search1..."
+            /></label>
+            <label class="stacked-input"
+              >Key #2 :<input
+                id="myInput2"
+                autocomplete="off"
+                placeholder="Search2..."
+            /></label>
+            <label class="stacked-input"
+              >Key #3 :<input
+                id="myInput3"
+                autocomplete="off"
+                placeholder="Search3..."
+            /></label>
+            <label class="stacked-input"
+              >Pin # :<input
+                placeholder="00000"
+                pattern="[0-9]{5}"
+                id="pin"
+                max="5"
+                maxlength="5"
+                type="number"
+                placeholder="5 digit PIN"
+                onKeyPress="if(this.value.length>=5) return false;"
+              />
+            </label>
+          </form>
         </div>
-        <br />
-
-        <p>5 digit pin has 100,000 possible values</p>
-        <div id="pinKeys">
-          <input
-            placeholder="00000"
-            pattern="[0-9]{5}"
-            id="pin"
-            max="5"
-            maxlength="5"
-            type="number"
-            placeholder="5 digit PIN"
-            onKeyPress="if(this.value.length>=5) return false;"
-          />
-        </div>
-        <br />
-        <code>
-          For a grand total of: 101,563,430,000,000,000,000,000 combinations.<br />
-          a 12 character pass only has:..... 94,000,000,000,000
-        </code>
       </div>
+
+      <button
+        id="keyPopUp__apply"
+        class="keyPopUp__apply"
+        disabled
+        onclick="document.querySelector('.keyPopUp').style.display = 'none'"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-check"
+        >
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        Apply
+      </button>
     </div>
 
     <!-- Include a Quill editor -->
