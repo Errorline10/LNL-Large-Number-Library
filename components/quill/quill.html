@@ -1,0 +1,41 @@
+    <!-- Include Quill -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.min.js"></script>
+
+
+        <!-- Include a Quill editor -->
+    <div id="editor">
+      <p>Hello World!</p>
+      <p>Some initial <strong>bold</strong> text</p>
+      <p><br /></p>
+    </div>
+    <button id="save" onclick="save()">Save</button>
+    <button id="load" onclick="load()">Load</button>
+
+    <script>
+      function save() {
+        let el = document.getElementById("editor").querySelector(".ql-editor");
+        console.log(el.innerHTML);
+      }
+      function load() {
+        let el = document.getElementById("editor");
+        let editor = el.querySelector(".ql-editor");
+        editor.innerHTML = `Hello my name is mike!`;
+      }
+
+      var quill = new Quill("#editor", {
+        theme: "snow",
+        modules: {
+          toolbar: [
+            [{ header: [1, 2, false] }],
+            ["bold", "italic", "underline"],
+            ["code-block"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["link", "image"],
+          ],
+        },
+      });
+    </script>

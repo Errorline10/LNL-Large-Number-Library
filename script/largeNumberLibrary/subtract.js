@@ -1,11 +1,25 @@
+import _inequality from './inequality.js'
+import _add from './add.js'
+
+
 const _subtract = (n1, n2) => {
   let negative = false    
   
   // same so they cancel out
   if (n1 === n2) return "0"
 
+  // check for negative numbers
+  if ((n1[0] == "-") && (n2[0] !== "-")){
+    n1 = n1.slice(1)
+    return "-" + _add(n1,n2)
+  }
+  if ((n2[0] == "-") && (n1[0] !== "-")){
+    n2 = n2.slice(1)
+    return _add(n1,n2)
+  }
+
   // swap so num1 is the high one.
-  if (n1.length < n2.length) { 
+  if (_inequality(n1,n2) == 1){ 
     negative = true
     let t = n2; n2 = n1; n1 = t 
   }

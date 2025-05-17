@@ -25,6 +25,21 @@ const _inequalityTests = () => {
     console.log("❌ inequality('2','1') == ", _inequality('2', '1'));
   }
 
+  // -1 == 1
+  if (_inequality('-1', '1') == '-1') {
+    console.log("✅ inequality('-1','1') == -1");
+  } else {
+    console.log("❌ inequality('-1','1') == ", _inequality('-1', '1'));
+  }
+
+  // 1 == -1
+  if (_inequality('1', '-1') == '1') {
+    console.log("✅ inequality('1','-1') == 1");
+  } else {
+    console.log("❌ inequality('1','-1') == ", _inequality('1', '-1'));
+  }
+
+
   // -1 == -1
   if (_inequality('-1', '-1') == '0') {
     console.log("✅ inequality('-1','-1') == 0");

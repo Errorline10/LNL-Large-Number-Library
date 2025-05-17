@@ -1,0 +1,4 @@
+      #keyPopUp__apply:disabled {
+        background-color: gray;
+        cursor: not-allowed;
+      }

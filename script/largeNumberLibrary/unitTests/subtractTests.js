@@ -4,6 +4,13 @@ const _subtractTests = () => {
 
   console.log('subtract');
 
+  // 3-1
+  if (_subtract('3', '1') == '2') {
+    console.log("✅ _subtract('3','1') == 2");
+  } else {
+    console.log("❌ _subtract('3','1') == ", _subtract('3', '1'));
+  }
+
   // 1-1
   if (_subtract('1', '1') == '0') {
     console.log("✅ _subtract('1','1') == 0");
@@ -46,6 +53,21 @@ const _subtractTests = () => {
   } else {
     console.log("❌ _subtract('123456780','123456789') == ", _subtract('123456780', '123456789'));
   }
+
+  // -2 - 10
+  if (_subtract('-2', '10') == '-12') {
+    console.log("✅ _subtract('-2','10') == -12");
+  } else {
+    console.log("❌ _subtract('-2','10') == ", _subtract('-2', '10'));
+  }
+
+  // 2 - -10
+  if (_subtract('2', '-10') == '12') {
+    console.log("✅ _subtract('2','-10') == 12");
+  } else {
+    console.log("❌ _subtract('2','-10') == ", _subtract('2', '-10'));
+  }
+
 
 
 }

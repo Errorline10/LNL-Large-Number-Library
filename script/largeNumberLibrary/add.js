@@ -1,7 +1,23 @@
+import _inequality from "./inequality.js";
+import _subtract from "./subtract.js";
+
 const _add = (n1, n2) => {
+  let negative = false;
+
+  // check if both are negative numbers
+  if (n1[0] == "-" && n2[0] == "-") {
+    negative = true;
+    n1 = n1.slice(1)
+    n2 = n2.slice(1)
+  } 
 
   // swap so num1 is the high one.
-  if (n1.length < n2.length) { let t = n2; n2 = n1; n1 = t }
+  if (n1[0] == "-" && n2[0] != "-") {
+    n1 = n1.slice(1)
+    return "-" + _subtract(n1, n2)
+  }
+
+  if (_inequality(n1,n2)==1 ) { let t = n2; n2 = n1; n1 = t }
 
   // pad out second number
   for (let x = 0; x < n1.length; x++) {
@@ -27,6 +43,9 @@ const _add = (n1, n2) => {
         finalSum = singleSum[0] + finalSum;
       }
     }
+  }
+  if (negative == true) {
+    return "-" + finalSum
   }
   return finalSum
 }
