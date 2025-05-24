@@ -8,7 +8,7 @@ import _allTests from './unitTests/allTests.js'
 
 const ns=()=>{
   // Private
-  const LibraryName = "NumberStrings JS Library - by OrbitSquared"
+  const LibraryName = "NumberStrings JS Library - by Errorline10"
 
   // Public
   return {

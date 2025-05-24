@@ -8,14 +8,27 @@
     <link rel="stylesheet" href="styles/autocomplete.css" />
 
     <script type="module">
-      import bigMath from "/script/largeNumberLibrary/largeNumberLibrary.js";
-      console.log(bigMath().allTests("all"));
+      // import bigMath from "/script/largeNumberLibrary/largeNumberLibrary.js";
+      // console.log(bigMath().allTests("all"));
+
+      import otp from "/script/OTP32Bit/OTP-32bit-demo.js";
+
+      let message = "MORTY::EVIL::Hello World!";
+      let key = "RICK::C-137::V2FiYmEgTHViYmEgRHViIER1YiE";
+      let cipherText = otp().XorCipher(message, key);
+      let planeText = otp().XorCipher(cipherText, key);
+
+      console.log("messageText | ", message);
+      console.log("Key Text    | ", key);
+      console.log("cipherText  | ", cipherText);
+      console.log("planeText   | ", planeText);
+
     </script>
   </head>
 
   <body>
-    <header>Large Number Library - SandBox</header>
+    <!-- <header>Large Number Library - SandBox</header>
     <div class="output"></div>
-    <footer></footer>
+    <footer></footer> -->
   </body>
-  </html>
+</html>
