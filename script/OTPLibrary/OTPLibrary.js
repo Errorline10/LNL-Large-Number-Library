@@ -13,6 +13,14 @@
 //           * "MORTY:C-137::" is used to identify the message.
 //           * "MORTY::EVIL::" is a plain text message.
 //
+//  example usage: 
+//       <script type="module">
+//         import otp from "/script/OTPLibrary/OTPLibrary.js";
+//         let message = "MORTY::EVIL::Hello World!";
+//         let key     = "RICK::C-137::V2FiYmEgTHViYmEgRHViIER1YiE";
+//         let cipherText = otp().XorCipher(message, key);
+//         let planeText = otp().XorCipher(cipherText, key);
+//       </script>
 //
 //
 
@@ -81,9 +89,9 @@ const otp = () => {
   // ________________________/  function: _unwrap \_______
   // Unwrap the message or key
   function _unwrap(t) {
-    if ((t.indexOf(_id.Rick) == 0) || (t.indexOf(_id.Morty) == 0)) { // its not in base64}
+    if ((t.indexOf(_id.Rick) == 0) || (t.indexOf(_id.Morty) == 0)) { 
       t = t.substring(13, t.length);
-      t = atob(t);
+      t = atob(t); // convert from base64 
     }
     if ((t.indexOf(_id.MortyEvil) == 0)) { // its not in base64})
       t = t.substring(13, t.length);
