@@ -8,21 +8,24 @@
     <link rel="stylesheet" href="styles/autocomplete.css" />
 
     <script type="module">
-      // import bigMath from "/script/largeNumberLibrary/largeNumberLibrary.js";
-      // console.log(bigMath().allTests("all"));
+      // Large Number Library
+      import LNL from "/script/largeNumberLibrary/largeNumberLibrary.js";
+      console.log(LNL.allTests("all"));
 
-      import otp from "/script/OTPLibrary/OTPLibrary.js";
+      // createRicks.js
+      // import createRicks from "/script/OTPLibrary/createRicks.js";
+      // //let key = "RICK::C-137::V2FiYmEgTHViYmEgRHViIER1YiE";
+      // let key = createRicks()
 
-      let message = "MORTY::EVIL::Hello World!";
-      let key = "RICK::C-137::V2FiYmEgTHViYmEgRHViIER1YiE";
-      let cipherText = otp().XorCipher(message, key);
-      let planeText = otp().XorCipher(cipherText, key);
-
-      console.log("messageText | ", message);
-      console.log("Key Text    | ", key);
-      console.log("cipherText  | ", cipherText);
-      console.log("planeText   | ", planeText);
-
+      // one Time Pad
+      // import otp from "/script/OTPLibrary/OTPLibrary.js";
+      // let message = "MORTY::EVIL::Hello World!";
+      // let cipherText = otp().XorCipher(message, key);
+      // let planeText = otp().XorCipher(cipherText, key);
+      // console.log("messageText | ", message);
+      // console.log("Key Text    | ", key);
+      // console.log("cipherText  | ", cipherText);
+      // console.log("planeText   | ", planeText);
     </script>
   </head>
 

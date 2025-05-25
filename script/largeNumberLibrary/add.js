@@ -11,12 +11,13 @@ const _add = (n1, n2) => {
     n2 = n2.slice(1)
   } 
 
-  // swap so num1 is the high one.
+  // if both are negative, use subtract
   if (n1[0] == "-" && n2[0] != "-") {
     n1 = n1.slice(1)
     return "-" + _subtract(n1, n2)
   }
 
+  // swap so num1 is the high one.
   if (_inequality(n1,n2)==1 ) { let t = n2; n2 = n1; n1 = t }
 
   // pad out second number
