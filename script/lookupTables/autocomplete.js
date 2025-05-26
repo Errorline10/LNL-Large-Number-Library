@@ -15,8 +15,27 @@ const _autocomplete = () => {
     this.setKeyListener();
   }
 
+  function _findValue(word) {
+    console.log("findValue called with word: " + word);
+    let firstLetter = word[0].toLowerCase();
+    let file = "../lookupTables/englishDictionary/" + firstLetter + ".js";
+    return import(file).then((obj) => {
+      let array = obj.default.data;
+      for (let i = 0; i < array.length; i++) {
+        if (array[i].toLowerCase() === word.toLowerCase()) {
+          console.log("word | " + array[i] + ' found at position ' + i);
+          return true;
+        }
+      }
+      return false;
+    });
+
+  }
+
+
   function _listenIn(e) {
     this.el.addEventListener("keyup", this.keyed.bind(this));
+    this.el.addEventListener("onChange", this.findValue.bind(this));
   }
 
   function _keyed(e) {
@@ -64,7 +83,7 @@ const _autocomplete = () => {
         if (this.currentFocus == displayPlace) { item.classList.add('selected') }
         item.innerHTML = "<strong>" + this.array[i].substr(0, this.el.value.length) + "</strong>";
         item.innerHTML += this.array[i].substr(this.el.value.length);
-        item.innerHTML += "<input type='hidden' value='" + this.array[i] + "'>";
+        item.innerHTML += "<input type='hidden' value='" + this.array[i] + " | " + i + "'>";
         // add click event to list item
         item.addEventListener("click", (e) => {
           this.el.value = e.target.getElementsByTagName("input")[0].value;
@@ -98,11 +117,12 @@ const _autocomplete = () => {
         case 13: // enter key
           e.preventDefault();
           if (this.currentFocus > -1) {
-            if (x) x[this.currentFocus-1].click();
+            if (x) x[this.currentFocus - 1].click();
           }
           break;
         default: // all other keys
           this.currentFocus = 0;
+          this.clearSuggestions();
           break;
       }
     });
@@ -116,7 +136,8 @@ const _autocomplete = () => {
     createSuggestionsDom: _createSuggestionsDom,
     loadList: _loadList,
     clearSuggestions: _clearSuggestions,
-    setKeyListener: _setKeyListener
+    setKeyListener: _setKeyListener,
+    findValue: _findValue,
   };
 };
 export default _autocomplete;

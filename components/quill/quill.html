@@ -1,41 +1,82 @@
-    <!-- Include Quill -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.min.js"></script>
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
 
 
-        <!-- Include a Quill editor -->
-    <div id="editor">
-      <p>Hello World!</p>
-      <p>Some initial <strong>bold</strong> text</p>
-      <p><br /></p>
-    </div>
-    <button id="save" onclick="save()">Save</button>
-    <button id="load" onclick="load()">Load</button>
+<!-- Include Quill -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
 
-    <script>
-      function save() {
-        let el = document.getElementById("editor").querySelector(".ql-editor");
-        console.log(el.innerHTML);
-      }
-      function load() {
-        let el = document.getElementById("editor");
-        let editor = el.querySelector(".ql-editor");
-        editor.innerHTML = `Hello my name is mike!`;
-      }
+<!-- Include the highlight.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-      var quill = new Quill("#editor", {
-        theme: "snow",
-        modules: {
-          toolbar: [
-            [{ header: [1, 2, false] }],
-            ["bold", "italic", "underline"],
-            ["code-block"],
-            [{ list: "ordered" }, { list: "bullet" }],
-            ["link", "image"],
-          ],
-        },
-      });
-    </script>
+
+<link href="quill.css" rel="stylesheet" />
+<script src="quill.js"></script>
+
+
+
+</head>
+<body>
+<!-- Include a Quill editor -->
+ 
+<div id="editor">
+  <p>Hello World!</p>
+  <p>Some initial <strong>bold</strong> text</p>
+  <p><br /></p>
+</div>
+<button id="save" onclick="save()">Save</button>
+<button id="load" onclick="load()">Load</button>
+
+<script>
+function save() {
+    let el = document.getElementById("editor").querySelector(".ql-editor");
+    console.log(el.innerHTML);
+  }
+  function load() {
+    let el = document.getElementById("editor");
+    let editor = el.querySelector(".ql-editor");
+    editor.innerHTML = `Hello my name is mike!`;
+  }
+
+  var quill = new Quill("#editor", {
+    theme: "snow",
+    modules: {
+      syntax: true,              // Include syntax module
+      toolbar: [
+        [{ font: [] }],
+        [{ align: [] }],
+
+        ["bold", "italic", "underline", "strike"], // toggled buttons
+        ["blockquote", "code-block"],
+        ["link", "image", "video", "formula"],
+
+        [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
+        [{ script: "sub" }, { script: "super" }], // superscript/subscript
+        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+        [{ direction: "rtl" }], // text direction
+
+        [{ size: ["small", "medium", "large", "huge"] }], // custom dropdown
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+        ["clean"],
+      ],
+    },
+  });
+
+const Delta = Quill.import('delta');
+quill.setContents(
+  new Delta()
+    .insert('const language = "JavaScript";')
+    .insert('\n', { 'code-block': 'javascript' })
+    .insert('console.log("I love " + language + "!");')
+    .insert('\n', { 'code-block': 'javascript' })
+);
+
+</script>
+
+
+
+</body>

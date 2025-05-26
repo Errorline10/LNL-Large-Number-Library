@@ -6,16 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles/keyPopUp.css" />
     <link rel="stylesheet" href="styles/autocomplete.css" />
+    <link rel="stylesheet" href="styles/loading.css" />
 
     <script type="module">
+      import generatePrimes from "/script/OTPLibrary/generatePrime.js";
+      let primes = generatePrimes(50000);
+      console.log("Primes: ", primes[10]);
       // Large Number Library
-      import LNL from "/script/largeNumberLibrary/largeNumberLibrary.js";
-      console.log(LNL.allTests("all"));
+      //import LNL from "/script/largeNumberLibrary/largeNumberLibrary.js";
+      // console.log(LNL.allTests("all"));
 
       // createRicks.js
       // import createRicks from "/script/OTPLibrary/createRicks.js";
-      // //let key = "RICK::C-137::V2FiYmEgTHViYmEgRHViIER1YiE";
+      //let key = "RICK::C-137::V2FiYmEgTHViYmEgRHViIER1YiE";
       // let key = createRicks()
+      // console.log("key | ", key);
 
       // one Time Pad
       // import otp from "/script/OTPLibrary/OTPLibrary.js";
@@ -30,8 +35,9 @@
   </head>
 
   <body>
-    <!-- <header>Large Number Library - SandBox</header>
+    <header>Large Number Library - SandBox</header>
+    <div id="loadingBar"class="loader primes"></div>
     <div class="output"></div>
-    <footer></footer> -->
+    <footer></footer>
   </body>
 </html>
