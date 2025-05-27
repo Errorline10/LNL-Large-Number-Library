@@ -9,7 +9,6 @@
   box-sizing: border-box;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 13px;
-  height: 100%;
   margin: 0;
   position: relative;
 }
@@ -36,7 +35,6 @@
   counter-reset: list-0 list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8
     list-9;
   line-height: 1.42;
-  height: 100%;
   outline: none;
   overflow-y: auto;
   tab-size: 4;
@@ -1055,7 +1053,7 @@
   color: #06c;
 }
 .ql-container.ql-snow {
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
 }
 
 /*# sourceMappingURL=quill.snow.css.map*/
