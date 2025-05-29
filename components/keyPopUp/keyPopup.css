@@ -1,4 +1,33 @@
-      #keyPopUp__apply:disabled {
+.keyPopUp{
+  border: 1px solid black
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px
+}
+.keyPopUp .keyPopUp_title{
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.keyPopUp .keyPopUp__close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.keyPopUp .keyPopUp_container{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#keyPopUp__apply:disabled {
         background-color: gray;
         cursor: not-allowed;
       }
