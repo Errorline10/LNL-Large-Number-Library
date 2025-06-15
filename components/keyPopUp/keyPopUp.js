@@ -1,4 +1,7 @@
-      import autocomplete from "/script/lookupTables/autocomplete.js";
+      import autocomplete from "../../script/lookupTables/autocomplete.js";
+
+const keyPopUp = () => {
+      console.log("keyPopUp.js loaded");
 
       document.addEventListener("DOMContentLoaded", function () {
         let auto1 = autocomplete();
@@ -30,3 +33,5 @@
         // Initialize button state
         checkInputs();
       });
+}
+export default keyPopUp();

@@ -91,6 +91,7 @@ const _autocomplete = () => {
         });
 
         autocompleteList.appendChild(item);
+
       }
     }
   }
@@ -125,6 +126,7 @@ const _autocomplete = () => {
           this.clearSuggestions();
           break;
       }
+
     });
   }
 
