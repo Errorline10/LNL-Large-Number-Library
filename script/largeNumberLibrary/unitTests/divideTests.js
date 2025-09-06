@@ -18,6 +18,51 @@ const _divideTests = () => {
     console.log("❌ _divide('1','1') == ", _divide('1', '1'));
   }
 
+  // // 2/-2
+  if (_divide('2', '-2') == '-1') {
+    console.log("✅ _divide('2','-2') == -1");
+  } else {
+    console.log("❌ _divide('2','-2') == ", _divide('2', '-2'));
+  }
+
+  // // -2/-2
+  if (_divide('-2', '-2') == '1') {
+    console.log("✅ _divide('-2','-2') == 1");
+  } else {
+    console.log("❌ _divide('-2','-2') == ", _divide('-2', '-2'));
+  }
+  // // -2/2
+  if (_divide('-2', '2') == '-1') {
+    console.log("✅ _divide('-2','2') == -1");
+  } else {
+    console.log("❌ _divide('-2','2') == ", _divide('-2', '2'));
+  }
+
+
+  // 100/-1
+  if (_divide('100', '-1') == '-100') {
+    console.log("✅ _divide('100','-1') == -100");
+  } else {
+    console.log("❌ _divide('100','-1') == ", _divide('100', '-1'));
+  }
+
+  // -100/-1
+  if (_divide('-100', '-1') == '100') {
+    console.log("✅ _divide('-100','-1') == 100");
+  } else {
+    console.log("❌ _divide('-100','-1') == ", _divide('-100', '-1'));
+  }
+
+  // 100/-1
+  if (_divide('100', '-1') == '-100') {
+    console.log("✅ _divide('100','-1') == -100");
+  } else {
+    console.log("❌ _divide('100','-1') == ", _divide('100', '-1'));
+  }
+
+
+
+
   // 10/10
   if (_divide('10', '10') == '1') {
     console.log("✅ _divide('10','10') == 1");
@@ -32,6 +77,16 @@ const _divideTests = () => {
     console.log("❌ _divide('10','5') == ", _divide('10', '5'));
   }
 
+
+  // 10000/5000
+  if (_divide('10000', '5000') == '2') {
+    console.log("✅ _divide('10000','5000') == 2");
+  } else {
+    console.log("❌ _divide('10000','5000') == ", _divide('10000', '5000'));
+  }
+
+
+
   // 9/3
   if (_divide('9', '3') == '3') {
     console.log("✅ _divide('9','3') == 3");
@@ -39,49 +94,38 @@ const _divideTests = () => {
     console.log("❌ _divide('9','3') == ", _divide('9', '3'));
   }
 
+console.log('________________________________________________')
 
-  // 100/2
-  if (_divide('1000', '2') == '500') {
-    console.log("✅ _divide('1000','2') == 500");
-  } else {
+  // // 1000/2
+  // if (_divide('1000', '2') == '500') {
+  //   console.log("✅ _divide('1000','2') == 500");
+  // } else {
     console.log("❌ _divide('1000','2') == ", _divide('1000', '2'));
-  }
-
-  // -2/2
-  if (_divide('-2', '2') == '-1') {
-    console.log("✅ _divide('-2','2') == -1");
-  } else {
-    console.log("❌ _divide('-2','2') == ", _divide('-2', '2'));
-  }
-
-  // 2/-2
-  if (_divide('2', '-2') == '-1') {
-    console.log("✅ _divide('2','-2') == -1");
-  } else {
-    console.log("❌ _divide('2','-2') == ", _divide('2', '-2'));
-  }
-
-  // -2/-2
-  if (_divide('-2', '-2') == '1') {
-    console.log("✅ _divide('-2','-2') == 1");
-  } else {
-    console.log("❌ _divide('-2','-2') == ", _divide('-2', '-2'));
-  }
-
-//   // 10009/2
-//   if (_divide('10009', '2') == '5004.5') {
-//     console.log("✅ _divide('10009','2') == 5004.5");
-//   } else {
-//     console.log("❌ _divide('10009','2') == ", _divide('10009', '2'));
-//   }
+  // }
 
 
-//   // 1000000000/20
-//   if (_divide('1000000000', '20') == '50000000') {
-//     console.log("✅ _divide('1000000000','20') == 50000000");
-//   } else {
-//     console.log("❌ _divide('1000000000','20') == ", _divide('1000000000', '20'));
-//   }
+  // 10009/2
+  // if (_divide('10009', '2') == '5004.5') {
+  //   console.log("✅ _divide('10009','2') == 5004.5");
+  // } else {
+  //   console.log("❌ _divide('10009','2') == ", _divide('10009', '2'));
+  // }
+
+  // 1000/20
+  // if (_divide('1000', '20') == '50') {
+  //   console.log("✅ _divide('1000','20') == 50");
+  // } else {
+  //   console.log("❌ _divide('1000','20') == ", _divide('1000', '20'));
+  // }
+
+
+
+  // // 1000000000/20
+  // if (_divide('1000000000', '20') == '50000000') {
+  //   console.log("✅ _divide('1000000000','20') == 50000000");
+  // } else {
+  //   console.log("❌ _divide('1000000000','20') == ", _divide('1000000000', '20'));
+  // }
 
 
 //   // 1000000000000000000000000000009/2

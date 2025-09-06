@@ -25,6 +25,14 @@ const _multiplyTests = () => {
     console.log("❌ _multiply('1','1') == ", _multiply('1', '1'));
   }
 
+  // 5*5
+  if (_multiply('5', '5') == '25') {
+    console.log("✅ _multiply('5','5') == 25");
+  } else {
+    console.log("❌ _multiply('5','5') == ", _multiply('5', '5'));
+  }
+
+
   // 10*10
   if (_multiply('10', '10') == '100') {
     console.log("✅ _multiply('10','10') == 100");

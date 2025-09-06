@@ -39,6 +39,22 @@ const _subtractTests = () => {
     console.log("❌ _subtract('10','100') == ", _subtract('10', '100'));
   }
 
+  // // 2-1000
+  // if (_subtract('2','1000') == '998') {
+  //   console.log("✅ _subtract('2','1000') == 998");
+  // } else {
+  //   console.log("❌ _subtract('2','1000') == ", _subtract('2', '1000'));
+  // }
+
+  // 100-9
+  if (_subtract('100', '9') == '91') {
+    console.log("✅ _subtract('100','9') == 91");
+  } else {
+    console.log("❌ _subtract('100','9') == ", _subtract('100', '9'));
+  }
+
+
+
   // 123456789-123456789
   if (_subtract('123456789', '123456789') == '0') {
     console.log("✅ _subtract('123456789','123456789') == 0");

@@ -3,15 +3,24 @@ import _add from './add.js'
 import _multiply from './multiply.js'
 import _subtract from './subtract.js'
 import _generateZeros from './generateZeros.js'
+import _isOdd from './isOdd.js'
+import _length from './length.js'
 
 const _divide = (dividend, divisor) => {
-  let negative = false
-  if (divisor == "0") {
-    return "Infinity"
-  }
+  let bigOCount = 0;
 
-  if (divisor == "1") {
-    return dividend
+  // handle simple cases
+  let dividendLength = _length(dividend)
+  let divisorLength = _length(divisor)
+  // divisor is larger than dividend
+  //if (_inequality(dividend, divisor) == 1) { return "0" }
+
+
+  let negative = false
+  if (divisor == "0") { return "Infinity" }
+  if (divisor == "1") { return dividend }
+  if (divisor == "-1") {
+    if (dividend[0] == "-") { return dividend.slice(1) } else { return "-" + dividend }
   }
 
   // check for negative numbers
@@ -31,87 +40,80 @@ const _divide = (dividend, divisor) => {
 
   // they are the same number
   if (_inequality(dividend, divisor) == 0) {
-    if (negative == true) {
-      return "-1"
-    } else {
-      return "1"
-    }
+    if (negative == true) { return "-1" } else { return "1" }
   }
 
-
-  // start to close in on the largest multiple without going over
-  let odd = false
-  let l = dividend[dividend.length - 1] // last digit
-  if (l == "1" || l == "3" || l == "5" || l == "7" || l == "9") { odd = true }
-
-
-  let count = 0;
-  let guessPower = toString(dividend.length - 1);
+  // start the brute force divide
+  let guessIncrement = "1";
   let guess = "1"
-  let upperGate = 0
-  let lowerGate = 0
+  if (dividendLength > 1){
+    let maxLength = dividendLength - divisorLength
+    guess = "1"+_generateZeros(maxLength) // initial max guess
+    console.log(dividend,'/',divisor, 'Initial Guess set to', guess , typeof(guess))
+  }
 
-  let pingPong = false
+// dividend = 1000
+// divisor = 20
 
-  let howClose = _inequality(dividend, divisor)
-  let lastClose = 0
+// 20*x = 1000
 
-  if (_inequality(guessPower,"1" == 1)) {
-    guess = guess + _generateZeros(guessPower)
-  } else {
-    guessPower = "0"
+
+
+  let tempResult = _multiply(divisor, guess)
+
+  // optimized method to get close to the answer
+  if (_isOdd(dividend) == false && _isOdd(divisor) == false) { // both even
+    guessIncrement = '2'
+    console.log("Both Even, guess increment set to 2")
   }
 
 
+  for (let x = 0; x < 100000; x++) {
+    console.log(guess, "*", divisor, "=" , tempResult) 
+
+    bigOCount++
+    let overUnder = _inequality(tempResult, dividend)
+    if (overUnder == 1) {
+      console.log("adding", guessIncrement)
+       guess = _add(guess, guessIncrement) 
+      }  // under
+    if (overUnder == -1) { 
+      console.log("subtracting: ", guess, "-", guessIncrement, ' | ',_subtract(guess, guessIncrement))
+      guess = _subtract(guess, guessIncrement) 
+    } // over 
+    if (overUnder == 0) { break } // equal
+    tempResult = _multiply(divisor, guess)
 
 
-
-  while (count < 10) {
-    //console.log("--> guessPower =", guessPower)
-    count++
-    if (pingPong == true) {
-      console.log("pingPong")
-
-      if (_inequality(guessPower, "2" == 1)){
-        guessPower = _subtract(guessPower,"1")
-        console.log("guessPower reduced | ", guessPower)
-      }
-      pingPong = false
+    if (x >= 99999) {
+      console.log("❌ _divide: loop limit reached, guess may not be accurate == 100,000 iterations")
     }
-
-    let guessMultiplied = _multiply(guess, divisor)
-
-    lastClose = howClose
-    howClose = _inequality(dividend, guessMultiplied)
-
-//    console.log(guess, " * ", divisor, " = ", guessMultiplied)
-//    console.log("howClose", howClose)
-//    console.log("guessPower", guessPower)
-
-
-
-    if (howClose == -1) {
-      lowerGate = guessMultiplied
-      guess = guess + _generateZeros(guessPower)
-      console.log("adding guess", guess)
-    }
-
-    if (howClose == 0) { break }
-
-    if (howClose == 1) {
-      upperGate = guessMultiplied
-      guess = guess + _generateZeros(guessPower)
-      console.log("subtracting guess", guess, ("1" + _generateZeros(guessPower)))
-    }
-
-    if (howClose !== lastClose) { pingPong = true }
-
-
 
   }
-  let quotient = guess
 
-  if (negative == true) { return "-" + quotient } else { return quotient }
+
+  // brute force method to get close to the answer
+
+  // for (let x = 0; x < 100000; x++) { 
+  //   let overUnder = _inequality(tempResult, dividend)
+  //   if (overUnder == 1) {  guess = _add(guess, guessIncrement) }  // under
+  //   if (overUnder == -1) { guess = _subtract(guess, guessIncrement) } // over 
+  //   if (overUnder == 0) {  break } // equal
+  //   tempResult = _multiply(divisor, guess)
+
+  //   if (x >= 999999) { 
+  //     console.log("❌ _divide: loop limit reached, guess may not be accurate")
+  //   }
+
+  // }
+
+
+
+
+
+  //console.log("guess", guess, "tempResult", tempResult)
+  console.log("Acheved in ", bigOCount, " iterations")
+  if (negative == true) { return "-" + guess } else { return guess }
 
 }
 export default _divide

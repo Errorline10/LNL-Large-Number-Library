@@ -40,6 +40,7 @@ const _multiply = (num1, num2) => {
       let n1 = parseInt(num1[y])
       let mult = (n2 * n1 + r).toString()
 
+
       if (mult > 9) {
         r = parseInt(mult[0])
         n3 = mult[1]
@@ -55,7 +56,9 @@ const _multiply = (num1, num2) => {
     onePassTally = ""
     zeroPad = zeroPad + "0"
   }
-  if (r==1){result = "1" + result}
+  //console.log("result", result, "r", r, "negative", negative)
+  if (r !== 0){result = r + result}
+
   if (negative == true){result = '-'+ result}
   return result
 }

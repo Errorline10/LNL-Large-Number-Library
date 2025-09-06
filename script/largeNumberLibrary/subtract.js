@@ -44,13 +44,16 @@ const _subtract = (n1, n2) => {
     if (n2.length < n1.length) { n2 = "0" + n2 }
   }
   
+
+console.log('subtracting', n1, '-', n2, 'negative:', negative)
   // do the math
   let finalSum = "";
   let len = n1.length;
   for (let x = len - 1; x >= 0; x--) {
+
     let r1 = parseInt(n1[x])
     let r2 = parseInt(n2[x])
-
+console.log('  ', n1[x], '-', n2[x])
     // borrow if needed
     if (r1 < r2){
       if (n1[x-1] > 0){
@@ -60,6 +63,7 @@ const _subtract = (n1, n2) => {
     }
 
     finalSum = (r1 - r2).toString() + finalSum;
+    console.log(finalSum)
   }
 
   //trim leading zeros

@@ -3,7 +3,7 @@ const _generateZeros = (z) => {
 
     let paddedZeros = ""
     for (let i = 0; i <= z; i++) { 
-        paddedZeros += "0" 
+        paddedZeros += "0"
     }
     return paddedZeros.substring(0, paddedZeros.length - 1);
 }

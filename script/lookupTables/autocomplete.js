@@ -72,7 +72,6 @@ const _autocomplete = () => {
     if (this.currentFocus === 0) {
       this.currentFocus = 1;
     }
-    console.log(this.currentFocus)
     for (let i = 0; i < this.array.length; i++) {
       if (
         this.array[i].substr(0, this.el.value.length).toUpperCase() ==
