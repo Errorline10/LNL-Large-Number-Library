@@ -12,27 +12,21 @@ const _allTests = (tests) => {
   console.log('______________ Unit Tests Init _________________ | ' + tests);
   console.log('This systems Number.MAX_SAFE_INTEGER is: ', Number.MAX_SAFE_INTEGER);
 
-  if (tests == "length" || tests == "all") {
-    _lengthTests()
-  }
-
-  if (tests == "isOdd" || tests == "all") {
-    _isOddTests()
-  }
-
-  if (tests == "inequality" || tests == "all") {
-    _generateZerosTests()
-    _inequalityTests()
-    _multiplyTests()
-    _addTests()
-    _subtractTests()
-    //_divideTests()
-  } else {
+  //_lengthTests();
+//  _generateZerosTests();
+ //_inequalityTests(); _isOddTests(); _addTests(); _subtractTests(); _multiplyTests();
+//_divideTests();
     switch (tests) {
-      case "subtract":
-        _subtractTests
-    }
-  }
+      case "all": _lengthTests(); _inequalityTests(); _isOddTests(); _generateZerosTests(); _addTests(); _subtractTests(); _multiplyTests();  _divideTests();   break; 
+      case "length":        _lengthTests(); break; 
+      case "inequality":    _inequalityTests(); break; 
+      case "isOdd":         _isOddTests(); break; 
+      case "generateZeros": _generateZerosTests(); break; 
+      case "add":           _addTests(); break; 
+      case "subtract":      _subtractTests(); break; 
+      case "multiply":      _multiplyTests(); break; 
+      case "divide":        _divideTests(); break; 
+    } 
 
 
 }

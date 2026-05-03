@@ -39,12 +39,15 @@ const _subtractTests = () => {
     console.log("❌ _subtract('10','100') == ", _subtract('10', '100'));
   }
 
-  // // 2-1000
-  // if (_subtract('2','1000') == '998') {
-  //   console.log("✅ _subtract('2','1000') == 998");
-  // } else {
-  //   console.log("❌ _subtract('2','1000') == ", _subtract('2', '1000'));
-  // }
+
+  // 5 - 10
+  if (_subtract('5','10') == '-5') {
+    console.log("✅ _subtract('5','10') == -5");
+  } else {
+    console.log("❌ _subtract('5','10') == ", _subtract('5', '10'));
+  }
+
+
 
   // 100-9
   if (_subtract('100', '9') == '91') {
@@ -85,6 +88,21 @@ const _subtractTests = () => {
   }
 
 
+  // 100000 - 99999
+  if (_subtract('100000', '99999') == '1') {
+    console.log("✅ _subtract('100000','99999') == 1");
+  } else {
+    console.log("❌ _subtract('100000','99999') == ", _subtract('100000', '99999'));
+  }
+
+
+
+  // 2-1000
+  if (_subtract('2','1000') == '-998') {
+    console.log("✅ _subtract('2','1000') == -998");
+  } else {
+    console.log("❌ _subtract('2','1000') == ", _subtract('2', '1000'));
+  }
 
 }
 export default _subtractTests
