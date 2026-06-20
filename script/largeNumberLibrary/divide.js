@@ -62,10 +62,10 @@ const _divide = (dividend, divisor) => {
   let tempResult = _multiply(divisor, guess)
 
   // optimized method to get close to the answer
-  if (_isOdd(dividend) == false && _isOdd(divisor) == false) { // both even
-    guessIncrement = '2'
-    console.log("Both Even, guess increment set to 2")
-  }
+  //if (_isOdd(dividend) == false && _isOdd(divisor) == false) { // both even
+    //guessIncrement = '1'
+    //console.log("Both Even, guess increment set to 2")
+  //}
 
 
   for (let x = 0; x < 100000; x++) {
@@ -86,7 +86,8 @@ const _divide = (dividend, divisor) => {
 
 
     if (x >= 99999) {
-      console.log("❌ _divide: loop limit reached, guess may not be accurate == 100,000 iterations")
+      console.log("❌ _divide: loop limit reached, guess may not be accurate == 100,000 iterations");
+      break;
     }
 
   }

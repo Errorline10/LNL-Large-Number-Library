@@ -87,28 +87,30 @@ const _divideTests = () => {
 
 
 
-//   // 9/3
-//   if (_divide('9', '3') == '3') {
-//     console.log("✅ _divide('9','3') == 3");
-//   } else {
-//     console.log("❌ _divide('9','3') == ", _divide('9', '3'));
-//   }
+  // 9/3
+  if (_divide('9', '3') == '3') {
+    console.log("✅ _divide('9','3') == 3");
+  } else {
+    console.log("❌ _divide('9','3') == ", _divide('9', '3'));
+  }
 
 // console.log('________________________________________________')
 
-//   // // 1000/2
-//   // if (_divide('1000', '2') == '500') {
-//   //   console.log("✅ _divide('1000','2') == 500");
-//   // } else {
-//     console.log("❌ _divide('1000','2') == ", _divide('1000', '2'));
-//   // }
+  //100/20
+  let x = _divide('100', '20');
+  if (x == '5') {
+    console.log("✅ _divide('100','20') == ", x);
+  } else {
+    console.log("❌ _divide('100','20') == ", x);
+  }
 
 
-  // 10009/2
-  // if (_divide('10009', '2') == '5004.5') {
-  //   console.log("✅ _divide('10009','2') == 5004.5");
+  // 10010/2
+  // x = _divide('1000', '2');
+  // if (x == '500') {
+  //   console.log("✅ _divide('10009','2') == ", x);
   // } else {
-  //   console.log("❌ _divide('10009','2') == ", _divide('10009', '2'));
+  //   console.log("❌ _divide('10009','2') == ", x);
   // }
 
   // 1000/20
